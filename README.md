@@ -28,10 +28,10 @@ El modelo alcanzó convergencia estable y capacidad de inferencia en tiempo real
 ---
 
 ## 3. Modelo Matemático: Cadenas de Markov
-Se modeló el estado de cumplimiento en la vía mediante un proceso estocástico $\{X_t\}_{t \ge 0}$ con espacio de estados $S = \{E_0, E_1, E_2\}$:
-* **$E_0$ (Cumplimiento Total):** Todos los motociclistas detectados portan casco ($N_{\text{no\_helmet}} = 0 \land N_{\text{helmet}} > 0$).
-* **$E_1$ (Riesgo Parcial):** Coexisten conductores con y sin casco ($N_{\text{no\_helmet}} > 0 \land N_{\text{helmet}} > 0$).
-* **$E_2$ (Incumplimiento Crítico):** Ningún conductor porta casco ($N_{\text{no\_helmet}} > 0 \land N_{\text{helmet}} = 0$).
+Se modeló el estado de cumplimiento en la vía mediante un proceso estocástico $X_t$ con espacio de estados $S = \{E_0, E_1, E_2\}$:
+* **$E_0$ (Cumplimiento Total):** Todos los motociclistas detectados portan casco (`no_helmet = 0` y `helmet > 0`).
+* **$E_1$ (Riesgo Parcial):** Coexisten conductores con y sin casco (`no_helmet > 0` y `helmet > 0`).
+* **$E_2$ (Incumplimiento Crítico):** Ningún conductor porta casco (`no_helmet > 0` y `helmet = 0`).
 
 ### Matriz de Transición Observada ($P$)
 $$P = \begin{pmatrix}
@@ -48,7 +48,12 @@ $$P = \begin{pmatrix}
 
 ---
 
-## 4. Estructura del Repositorio
+## 4. Demostración Práctica (Video Procesado)
+* [▶ Ver Video de Inferencia en Tiempo Real (YOLO26 + Cadenas de Markov)](resultados/resultado_cascos_web.mp4)
+
+---
+
+## 5. Estructura del Repositorio
 * `Proyecto_Cascos_YOLO26.ipynb`: Notebook completo con instalación, entrenamiento, inferencia y simulación matemática.
 * `weights/best.pt`: Pesos entrenados del modelo YOLO26n.
-* `resultados/`: Gráficas de métricas, matriz de confusión, simulación de Markov y video procesado (`resultado_cascos.mp4`).
+* `resultados/`: Gráficas de métricas, matriz de confusión, simulación de Markov y video procesado (`resultado_cascos_web.mp4`).
